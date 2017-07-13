@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "WeaponItem.h"
 
 class FEAR_API FInventoryModel
 {
@@ -13,7 +14,7 @@ public:
 
 	AWeaponItem* GetWeapon(int slot);
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
 	TArray<AWeaponItem*> inventory;
 
 	void AddWeapon(AWeaponItem* weapon);

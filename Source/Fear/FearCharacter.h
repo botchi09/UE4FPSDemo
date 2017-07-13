@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "ShootOrientation.h"
 #include "FearCharacter.generated.h"
 
 class UInputComponent;
@@ -84,7 +85,7 @@ public:
 	ShootOrientation* GetShootOrientation();
 
 private:
-	FInventoryController inventory;
+	//FInventoryController inventory;
 
 protected:
 	

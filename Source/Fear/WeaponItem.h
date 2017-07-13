@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "WeaponBase.h"
 #include "WeaponItem.generated.h"
 
 UCLASS(config = Game)

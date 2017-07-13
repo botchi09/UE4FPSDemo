@@ -4,7 +4,6 @@
 #include "Animation/AnimInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "ShootOrientation.h"
-#include "FearCharacter.h"
 
 
 // Sets default values
@@ -35,7 +34,7 @@ void UWeaponBase::SecondaryFire()
 
 void UWeaponBase::ShootPrimary()
 {
-	UWorld* const World = GetWorld();
+	/*UWorld* const World = GetWorld();
 	if (World != NULL)
 	{
 			{
@@ -50,7 +49,7 @@ void UWeaponBase::ShootPrimary()
 			// spawn the projectile at the muzzle
 			World->SpawnActor<AFearProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 		}
-	}
+	}*/
 }
 
 ShootOrientation* UWeaponBase::GetShootOrientation()

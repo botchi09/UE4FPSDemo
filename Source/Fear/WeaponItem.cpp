@@ -3,7 +3,6 @@
 #include "WeaponItem.h"
 #include "Components/BoxComponent.h"
 #include "GameFramework/Actor.h"
-#include "WeaponBase.h"
 
 // Sets default values
 AWeaponItem::AWeaponItem()

@@ -7,13 +7,13 @@
 
 FInventoryController::FInventoryController()
 {
-	InventoryModel = new FInventoryModel();
+	//InventoryModel = new FInventoryModel();
 }
 
 FInventoryController::~FInventoryController()
 {
 }
-
+/*
 void FInventoryController::AddWeapon(AWeaponItem* weapon)
 {
 	InventoryModel.AddWeapon(weapon);
@@ -48,9 +48,9 @@ void FInventoryController::SelectPrevWeapon()
 		selectedIndex = InventoryModel.InventoryFilled() - 1;
 	}
 	SetWeapon(selectedIndex);
-}
-
+}*/
+/*
 AWeaponItem* FInventoryController::GetSelectedWeapon()
 {
 	return InventoryModel.GetWeapon(selectedIndex);
-}
+}*/

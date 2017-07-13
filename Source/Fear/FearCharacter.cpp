@@ -10,8 +10,7 @@
 #include "Kismet/HeadMountedDisplayFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
-#include "InventoryController.h"
-#include "ShootOrientation.h"
+//#include "InventoryController.h"
 
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
@@ -85,7 +84,7 @@ AFearCharacter::AFearCharacter()
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
 
-	inventory = new FInventoryController();
+	//inventory = new FInventoryController();
 }
 
 void AFearCharacter::BeginPlay()

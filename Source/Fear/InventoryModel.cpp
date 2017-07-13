@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.AWeaponItem
 
 #include "InventoryModel.h"
-#include "WeaponItem.h"
 
 AWeaponItem* FInventoryModel::GetWeapon(int slot)
 {

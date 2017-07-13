@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FearCharacter.h"
 #include "WeaponBase.generated.h"
 
 UCLASS(Blueprintable)
