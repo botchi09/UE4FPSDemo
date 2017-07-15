@@ -14,9 +14,6 @@ public:
 
 	AWeaponItem* GetWeapon(int slot);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
-	TArray<AWeaponItem*> inventory;
-
 	void AddWeapon(AWeaponItem* weapon);
 
 	//Since we will only drop active weapon (and always maintain index of such) we can assume every weapon removal request includes an index
@@ -30,4 +27,6 @@ public:
 
 private:
 	int maxInventory = 3; //No more than 3 things in scrollable inventory at once
+	TArray<AWeaponItem*> inventory;
+
 };

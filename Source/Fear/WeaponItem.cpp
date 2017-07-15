@@ -3,6 +3,8 @@
 #include "WeaponItem.h"
 #include "Components/BoxComponent.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/BlueprintFunctionLibrary.h"
+
 
 // Sets default values
 AWeaponItem::AWeaponItem()
@@ -12,6 +14,21 @@ AWeaponItem::AWeaponItem()
 
 	//TODO: Naturally, we'll want to make this a rectangle later
 	UBoxComponent* CollisionComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
+	UStaticMeshComponent* ObjectMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMesh"));
+
+	//ObjectMesh->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepWorldTransform);
+	ObjectMesh->SetupAttachment(CollisionComp);
+
+	UStaticMesh* model = GiveWeapon->GetDefaultObject<UWeaponBase>()->GetWorldModel();
+
+	if (model != nullptr)
+	{
+		ObjectMesh->SetStaticMesh(model);
+	}
+	else
+	{
+
+	}
 
 }
 
@@ -19,6 +36,7 @@ AWeaponItem::AWeaponItem()
 void AWeaponItem::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
 }
 

@@ -2,6 +2,15 @@
 
 #include "InventoryModel.h"
 
+FInventoryModel::FInventoryModel()
+{
+}
+
+FInventoryModel::~FInventoryModel()
+{
+}
+
+
 AWeaponItem* FInventoryModel::GetWeapon(int slot)
 {
 	if (inventory.IsValidIndex(slot))
@@ -36,10 +45,3 @@ int FInventoryModel::GetMaxInventory()
 	return maxInventory;
 }
 
-FInventoryModel::FInventoryModel()
-{
-}
-
-FInventoryModel::~FInventoryModel()
-{
-}

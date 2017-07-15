@@ -37,6 +37,9 @@ protected:
 	UPROPERTY(EditAnywhere)
 	class UAnimMontage* FireAnimation;
 
+public:
+	UStaticMesh* GetWorldModel();
+
 private:
 
 	AFearCharacter* owner;

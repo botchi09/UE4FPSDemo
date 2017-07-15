@@ -52,6 +52,11 @@ void UWeaponBase::ShootPrimary()
 	}*/
 }
 
+UStaticMesh* UWeaponBase::GetWorldModel()
+{
+	return nullptr;
+}
+
 ShootOrientation* UWeaponBase::GetShootOrientation()
 {
 	ShootOrientation* orientation = owner->GetShootOrientation();
