@@ -14,21 +14,25 @@ AWeaponItem::AWeaponItem()
 
 	//TODO: Naturally, we'll want to make this a rectangle later
 	UBoxComponent* CollisionComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
-	UStaticMeshComponent* ObjectMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMesh"));
+	//USkeletalMeshComponent* ObjectMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("ItemMesh"));
 
-	//ObjectMesh->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepWorldTransform);
+	USkeletalMeshComponent* ObjectMesh = GiveWeapon->GetDefaultObject<UWeaponBase>()->GetModel();
+
 	ObjectMesh->SetupAttachment(CollisionComp);
 
-	UStaticMesh* model = GiveWeapon->GetDefaultObject<UWeaponBase>()->GetWorldModel();
+	CollisionComp->BodyInstance.SetCollisionProfileName("ItemPickup");
 
-	if (model != nullptr)
+
+	//UStaticMesh* model = GiveWeapon->GetDefaultObject<UWeaponBase>()->GetModel();
+
+	/*if (model != nullptr)
 	{
-		ObjectMesh->SetStaticMesh(model);
+		//ObjectMesh->SetStaticMesh(model);
 	}
 	else
 	{
 
-	}
+	}*/
 
 }
 

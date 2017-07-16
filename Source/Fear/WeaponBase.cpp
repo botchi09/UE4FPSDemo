@@ -9,11 +9,15 @@
 // Sets default values
 UWeaponBase::UWeaponBase()
 {
+	meshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(FName("WeaponModel"));
+	meshComponent->SetSkeletalMesh(Mesh1P);
 }
 
+//TODO: Decide whether Weapons will store reference to their owner, or have it passed as function arg
 UWeaponBase::UWeaponBase(AFearCharacter* owner)
 {
 	owner = owner;
+	UWeaponBase();
 }
 
 void SetOwner(AFearCharacter* owner)
@@ -52,9 +56,9 @@ void UWeaponBase::ShootPrimary()
 	}*/
 }
 
-UStaticMesh* UWeaponBase::GetWorldModel()
+USkeletalMeshComponent* UWeaponBase::GetModel()
 {
-	return nullptr;
+	return meshComponent;
 }
 
 ShootOrientation* UWeaponBase::GetShootOrientation()
@@ -75,7 +79,7 @@ void UWeaponBase::ShootEffects()
 	if (FireAnimation != NULL)
 	{
 		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		UAnimInstance* AnimInstance = GetModel()->GetAnimInstance();
 		if (AnimInstance != NULL)
 		{
 			AnimInstance->Montage_Play(FireAnimation, 1.f);

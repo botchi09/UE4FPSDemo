@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "WeaponBase.h"
-#include "Components/StaticMeshComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "WeaponItem.generated.h"
 
 UCLASS(config = Game)
@@ -17,7 +17,7 @@ class FEAR_API AWeaponItem : public AActor
 
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Weapon Item")
-	UStaticMeshComponent* ObjectMesh;
+	USkeletalMesh* ObjectMesh;
 
 	UPROPERTY(EditAnywhere, Category = "Weapon Item")
 	TSubclassOf<UWeaponBase> GiveWeapon;

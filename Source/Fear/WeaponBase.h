@@ -37,14 +37,18 @@ protected:
 	UPROPERTY(EditAnywhere)
 	class UAnimMontage* FireAnimation;
 
+	UPROPERTY(EditAnywhere)
+	class USkeletalMesh* Mesh1P;
+
 public:
-	UStaticMesh* GetWorldModel();
+	USkeletalMeshComponent* GetModel();
+	ShootOrientation* GetShootOrientation();
 
 private:
 
 	AFearCharacter* owner;
-	ShootOrientation* GetShootOrientation();
-	USkeletalMeshComponent* Mesh1P;
+	USkeletalMeshComponent* meshComponent;
+
 
 
 };
