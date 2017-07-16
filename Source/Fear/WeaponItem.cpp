@@ -16,30 +16,25 @@ AWeaponItem::AWeaponItem()
 	UBoxComponent* CollisionComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
 	//USkeletalMeshComponent* ObjectMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("ItemMesh"));
 
-	USkeletalMeshComponent* ObjectMesh = GiveWeapon->GetDefaultObject<UWeaponBase>()->GetModel();
-
-	ObjectMesh->SetupAttachment(CollisionComp);
-
-	CollisionComp->BodyInstance.SetCollisionProfileName("ItemPickup");
-
-
-	//UStaticMesh* model = GiveWeapon->GetDefaultObject<UWeaponBase>()->GetModel();
-
-	/*if (model != nullptr)
+	if (GiveWeapon != nullptr)
 	{
-		//ObjectMesh->SetStaticMesh(model);
+		UWeaponBase* weaponBase = GiveWeapon->GetDefaultObject<UWeaponBase>();
+	
+		USkeletalMeshComponent* ObjectMesh = weaponBase->GetModel();
+		ObjectMesh->SetupAttachment(CollisionComp);
+
+		CollisionComp->BodyInstance.SetCollisionProfileName("ItemPickup");
+
 	}
-	else
-	{
-
-	}*/
 
 }
 
 // Called when the game starts or when spawned
 void AWeaponItem::BeginPlay()
 {
+
 	Super::BeginPlay();
+
 
 	
 }

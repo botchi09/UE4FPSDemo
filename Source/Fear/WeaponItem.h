@@ -17,7 +17,7 @@ class FEAR_API AWeaponItem : public AActor
 
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Weapon Item")
-	USkeletalMesh* ObjectMesh;
+	USkeletalMeshComponent* ObjectMesh;
 
 	UPROPERTY(EditAnywhere, Category = "Weapon Item")
 	TSubclassOf<UWeaponBase> GiveWeapon;
