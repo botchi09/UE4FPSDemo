@@ -16,18 +16,42 @@ AWeaponItem::AWeaponItem()
 	UBoxComponent* CollisionComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
 	//USkeletalMeshComponent* ObjectMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("ItemMesh"));
 
+	AssignWeapon();
+
+}
+
+void AWeaponItem::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
+{
+	AssignWeapon();
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+}
+
+void AWeaponItem::AssignWeapon()
+{
 	if (GiveWeapon != nullptr)
 	{
 		UWeaponBase* weaponBase = GiveWeapon->GetDefaultObject<UWeaponBase>();
-	
-		USkeletalMeshComponent* ObjectMesh = weaponBase->GetModel();
-		ObjectMesh->SetupAttachment(CollisionComp);
+		
+		Weapon = NewObject<UWeaponBase>(this, weaponBase->StaticClass());
 
-		CollisionComp->BodyInstance.SetCollisionProfileName("ItemPickup");
+
+		USkeletalMeshComponent* ObjectMesh = Weapon->GetModel();
+
+
+		if (ObjectMesh != nullptr)
+		{
+			ObjectMesh->SetupAttachment(CollisionComp);
+			//This won't function unless ObjectMesh exists, I think
+			//CollisionComp->BodyInstance.SetCollisionProfileName("ItemPickup");
+		}
+
+		
+		
+		
 
 	}
-
 }
+
 
 // Called when the game starts or when spawned
 void AWeaponItem::BeginPlay()
